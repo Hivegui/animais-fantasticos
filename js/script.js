@@ -29,7 +29,6 @@ console.log(tooltip);
 const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
 scrollAnima.init();
 
-
 initDropdownMenu();
 initMenuMobile();
 initFuncionamento();
