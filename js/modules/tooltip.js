@@ -8,7 +8,7 @@ export default class Tooltip {
     this.onMouseOver = this.onMouseOver.bind(this);
   }
 
-  // move a tooltip com base em seus estilos
+  // Move a tooltip com base em seus estilos
   // de acordo com a posição do mouse
   onMouseMove(event) {
     this.tooltipBox.style.top = `${event.pageY + 20}px`;
@@ -26,7 +26,7 @@ export default class Tooltip {
     currentTarget.removeEventListener('mousemove', this.onMouseMove);
   }
 
-  // cria a tooltip box e coloca no body
+  // Cria a tooltip box e coloca no body
   criarTooltipBox(element) {
     const tooltipBox = document.createElement('div');
     const text = element.getAttribute('aria-label');
@@ -36,17 +36,16 @@ export default class Tooltip {
     this.tooltipBox = tooltipBox;
   }
 
-  // cria a tooltip e adiociona os eventos
+  // Cria a tooltip e adiciona os eventos
   // de mousemove e mouseleave ao target
   onMouseOver({ currentTarget }) {
-
     // cria a tooltipbox e coloca em uma propriedade
     this.criarTooltipBox(currentTarget);
-    event.currentTarget.addEventListener('mousemove', this.onMouseMove);
-    event.currentTarget.addEventListener('mouseleave', this.onMouseLeave);
+    currentTarget.addEventListener('mousemove', this.onMouseMove);
+    currentTarget.addEventListener('mouseleave', this.onMouseLeave);
   }
 
-  // adiciona os eventos de mouseover a cada tooltip
+  // Adiciona os eventos de mouseover a cada tooltip
   addTooltipsEvent() {
     this.tooltips.forEach((item) => {
       item.addEventListener('mouseover', this.onMouseOver);
@@ -56,7 +55,7 @@ export default class Tooltip {
   init() {
     if (this.tooltips.length) {
       this.addTooltipsEvent();
-    } 
+    }
     return this;
   }
 }
